@@ -1,0 +1,44 @@
+﻿@model MicroURLViewModel
+@{
+    ViewData["Title"] = "MicroURL";
+}
+
+<div class="mx-auto" style="max-width: 1000px;">
+    <h1 class="text-center" style="margin-top: 80px;">Welcome to the MicroURL generator!</h1>
+
+    <div class="card" style="margin-top: 25px;">
+        <h5 class="card-header">Generator</h5>
+        <div class="card-body">
+            <p class="card-text">Create a MicroURL by entering a URL below and clicking the convert button.</p>
+
+            @using (Html.BeginForm(FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                <div class="row mb-3 mt-lg-4">
+                    @Html.LabelFor(x => x.Input, new { @class = "col-sm-1 text-nowrap" })
+                    <div class="col-sm-11">
+                        @Html.TextBoxFor(x => x.Input, new { @class = $"form-control {(Model.IsPostBack ? (ViewData.ModelState.IsValid ? "is-valid" : "is-invalid") : string.Empty)}", placeholder = "Enter a URL"})
+                        @Html.ValidationMessageFor(x => x.Input, string.Empty, new { @class = $"{(!ViewData.ModelState.IsValid ? "invalid-feedback" : string.Empty)}" })
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    @Html.LabelFor(x => x.Output, new { @class = "col-sm-1 text-nowrap" })
+                    <div class="col-sm-11">
+                        <p class="card-text">
+                            <a href="@Model.Output" target="_blank">@Model.Output</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="text-center mt-lg-4">
+                    <button type="submit" class="btn btn-primary btn-lg px-lg-4">Convert</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+@* - Future.
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+*@
