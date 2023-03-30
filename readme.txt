@@ -8,7 +8,7 @@ and some supporting Class Libraries.
 REQUIREMENTS
 The application has the following dependencies:
 
-1. .NET 7.0 framework
+1. .NET 7.0
 2. Microsoft SQL Server database
 
 NOTES
@@ -18,4 +18,4 @@ There is an "appsettings.json" file in the "Converters.Web.App" project. In ther
 will find a "Default" connection string. This will need updating so it points to
 your Microsoft SQL Server.
 
-I hope you enjoy using this application as much I as did making it!
+I hope you enjoy using this application as much as I did making it!
