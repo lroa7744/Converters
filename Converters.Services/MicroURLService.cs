@@ -23,7 +23,7 @@ public class MicroURLService : BaseService, IMicroURLService
     {
         var url = new URL
         {
-            Value = value.Trim()
+            Value = value.Trim().TrimEnd('/')
         };
 
         return Task.FromResult(_microURLRepository.Add(url));

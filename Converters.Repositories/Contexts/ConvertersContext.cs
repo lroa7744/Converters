@@ -25,11 +25,18 @@ public class ConvertersContext : DbContext, IUnitOfWork
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        var configuration = new ConfigurationBuilder()
-             .AddJsonFile("appsettings.json")
-             .Build();
-
         if (!optionsBuilder.IsConfigured)
+        {
+            var configuration = new ConfigurationBuilder()
+                 .AddJsonFile("appsettings.json")
+                 .Build();
+
             optionsBuilder.UseSqlServer(configuration.GetConnectionString(DefaultConstants.ConnectionStringKey));
+        }
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<URL>().ToTable("URL");
     }
 }
