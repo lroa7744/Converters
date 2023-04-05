@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Converters.Web.App.ViewModels;
 
-public class MicroURLViewModel : BaseViewModel
+public partial class MicroURLViewModel : BaseViewModel
 {
     [Required(ErrorMessage = MessageConstants.URLRequiredErrorMessage)]
     [Url(ErrorMessage = MessageConstants.URLInvalidErrorMessage)]

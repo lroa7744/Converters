@@ -2,7 +2,7 @@
 
 namespace Converters.Domain.Models.Database;
 
-public class URL : IDatabaseObject
+public partial class URL : IDatabaseObject
 {
     public int Id { get; set; }
     public string? Value { get; set; }
