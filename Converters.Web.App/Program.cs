@@ -14,7 +14,7 @@ builder.Services.AddDbContext<ConvertersContext>(options => options.UseSqlServer
 builder.Services.AddScoped<IUnitOfWork>(_ => new ConvertersContext(options => options.UseSqlServer(connectionString)));
 builder.Services.AddDefaultServices();
 
-ConvertersDbInitializer.Initialize(new ConvertersContext(options => options.UseSqlServer(connectionString)));
+await ConvertersDbInitializer.InitializeAsync(new ConvertersContext(options => options.UseSqlServer(connectionString)));
 
 var app = builder.Build();
 
