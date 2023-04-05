@@ -12,7 +12,7 @@ var connectionString = builder.Configuration.GetConnectionString(DefaultConstant
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ConvertersContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IUnitOfWork>(_ => new ConvertersContext(options => options.UseSqlServer(connectionString)));
-builder.Services.AddConvertersServices();
+builder.Services.AddDefaultServices();
 
 ConvertersDbInitializer.Initialize(new ConvertersContext(options => options.UseSqlServer(connectionString)));
 

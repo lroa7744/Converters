@@ -7,7 +7,7 @@ namespace Converters.Web.App;
 
 public static class DependencyRegister
 {
-    public static IServiceCollection AddConvertersServices(this IServiceCollection services)
+    public static IServiceCollection AddDefaultServices(this IServiceCollection services)
     {
         services.AddRepositories();
         services.AddServices();
@@ -18,14 +18,14 @@ public static class DependencyRegister
     #region Helpers
     private static IServiceCollection AddRepositories(this IServiceCollection services)
     {
-        services.AddScoped<IMicroURLRepository, MicroURLRepository>();
+        services.AddTransient<IMicroURLRepository, MicroURLRepository>();
 
         return services;
     }
 
     private static IServiceCollection AddServices(this IServiceCollection services)
     {
-        services.AddScoped<IMicroURLService, MicroURLService>();
+        services.AddTransient<IMicroURLService, MicroURLService>();
 
         return services;
     }
