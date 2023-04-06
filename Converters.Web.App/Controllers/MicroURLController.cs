@@ -78,12 +78,12 @@ public class MicroURLController : BaseController
     {
         var bytes = Encoding.UTF8.GetBytes(value);
 
-        return Task.FromResult(Convert.ToBase64String(bytes));
+        return Task.FromResult(Convert.ToBase64String(bytes).Replace("/", "\\"));
     }
 
     private Task<string> Base64DecodeAsync(string value)
     {
-        var bytes = Convert.FromBase64String(value);
+        var bytes = Convert.FromBase64String(value.Replace("\\", "/"));
 
         return Task.FromResult(Encoding.UTF8.GetString(bytes));
     }
