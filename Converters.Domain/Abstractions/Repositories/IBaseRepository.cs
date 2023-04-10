@@ -1,7 +1,7 @@
 ﻿
 namespace Converters.Domain.Abstractions.Repositories;
 
-public interface IBaseRepository<T> where T : class, new()
+public interface IBaseRepository<T> : IDisposable where T : class, new()
 {
     int Commit();
     int Add(T item);

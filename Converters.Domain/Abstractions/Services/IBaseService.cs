@@ -1,7 +1,6 @@
 ﻿
 namespace Converters.Domain.Abstractions.Services;
 
-public interface IBaseService
+public interface IBaseService : IDisposable
 {
-
 }

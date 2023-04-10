@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Converters.Repositories;
 
-public abstract class BaseRepository<T> : IBaseRepository<T>, IDisposable where T : class, IDatabaseObject, new()
+public abstract class BaseRepository<T> : IBaseRepository<T> where T : class, IDatabaseObject, new()
 {
     private readonly DbContext _context;
     private readonly DbSet<T> _dbSet;
